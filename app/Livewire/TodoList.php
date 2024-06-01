@@ -14,6 +14,14 @@ class TodoList extends Component
         $this->todos = Todo::all();
     }
 
+    public function store(string $todo)
+    {
+        Todo::create([
+            'user_id' => 1,
+            'title' => $todo,
+        ]);
+    }
+
     public function render()
     {
         return view('livewire.todo-list', ['todos' => $this->todos]);
